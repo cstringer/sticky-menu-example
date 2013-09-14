@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+
+ <head>
+  <title>Sticky Menu Example</title>
+
+  <style>
+   .sticky { position:fixed; top:0; }
+  </style>
+
+  <script src="jquery.js"></script>
+
+  <script>
+   $(document).ready(function() {
+     var headHeight = $('#header').outerHeight();
+     var menuHeight = $('#menu').outerHeight();
+     var padOrig = $('#content').css('padding-top');
+     $(window).scroll(function() {
+       if ($(window).scrollTop() > headHeight) {
+         $('#menu').addClass('sticky');
+         $('#content').css('padding-top', padOrig + menuHeight);
+       } else {
+         $('#menu').removeClass('sticky');
+         $('#content').css('padding-top', padOrig);
+       }
+     });
+   });
+  </script>
+
+ </head>
+
+ <body>
+
+  <div id="header">This will disappear...</div>
+
+  <ul id="menu">
+   <li>Menu</li>
+   <li>will</li>
+   <li>stick!</li>
+  </ul>
+
+  <div id="content">This would be the 'lorem ipsum' area.</div>
+
+ </body>
+
+</html>
